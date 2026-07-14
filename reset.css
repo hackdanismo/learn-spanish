@@ -1,0 +1,125 @@
+/*
+ * CSS Reset.
+ * A lightweight, modern CSS reset for consistent styling across browsers.
+ * 
+ * Author: Dan Jackson (Hackdanismo).
+ * Released under the MIT Licence: https://opensource.org/licenses/MIT
+ */
+
+@layer reset {
+    html {
+        /* Ensure the width and height calculations for each element are predictable. */
+        box-sizing: border-box;
+        /* Reserve the space for a vertical scrollbar if it does not show to prevent layout shifts. */
+        scrollbar-gutter: stable;
+        /* Avoids unexpected text resizing on mobile Safari. */
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* Check the browser accessibility settings. */
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            /*
+            * Only apply this property when the user has not applied reduced motion.
+            * Sets the in-page scrolling to animate smoothly instead of jumping instantly.
+            * e.g. when anchor links are clicked.
+            */
+            scroll-behavior: smooth;
+        }
+    }
+
+    /* 
+    * The universal selector applies styling to all elements.
+    * Explicitly targets the ::before and ::after pseudo classes.
+    */
+    *, *::before, *::after {
+        /* Inherit the property settings from the parent element. */
+        box-sizing: inherit;
+    }
+
+    body {
+        /* Helps to push the page footer to the bottom of the page. */
+        display: flex;
+        /* Helps to push the page footer to the bottom of the page. */
+        flex-direction: column;
+        /* Remove the default margin. The body element usually has no default padding. */
+        margin: 0;
+        /*
+        * The line height is set to improve readability for normal text.
+        * This provides a baseline value across the site.
+        * This is unitless as this scales better with different font sizes and inherits cleanly.
+        * Can be overridden for headings and specific components or elements.
+        */
+        line-height: 1.5;
+        /* Fallback from browsers that do not support modern dvh units. */
+        min-height: 100vh;
+        /* Default to using dvh unless not supported. Avoids content being hidden behind UI elements, such as a toolbar. */
+        min-height: 100dvh;
+    }
+
+    main {
+        /* Avoids a floating footer element and helps to push the footer to the bottom of the page. */
+        flex: 1;
+    }
+
+    /* This is not strictly needed for modern browsers, but provides support for legacy browsers. */
+    article, aside, details, figcaption, footer, header,
+    main, menu, nav, section {
+        /* Explicit block display for semantic HTML elements. */
+        display: block;
+    }
+
+    /* Form elements. */
+    input, button, textarea, select, optgroup {
+        /* Inherit the font settings, font-family, font-size, font-weight and line-height properties, from the parent element to avoid inconsistency with the browser-default form styling. */
+        font: inherit;
+        /* Inherit the color property from the parent element. */
+        color: inherit;
+    }
+
+    button {
+        /* Set the cursor on the button element. */
+        cursor: pointer;
+    }
+
+    button:disabled {
+        /* Set the cursor on the button element when the button is disabled. */
+        cursor: default;
+    }
+
+    table {
+        /* Makes adjacent table cell borders merge into a single border. */
+        border-collapse: collapse;
+    }
+
+    img, picture, svg, video {
+        /*
+        * Sets images and media to be block elements. By default, these are usually inline-block.
+        * Removes a small inline gap that can appear underneath the image assets.
+        * This allows spacing and alignment to be easier to control.
+        */
+        display: block;
+        /*
+        * Prevents the elements from becoming wider than the parent and overflowing its container.
+        * Large images and media will reduce to fit within smaller containers.
+        * This allows images and media to be responsive.
+        */
+        max-width: 100%;
+    }
+
+    img, video, svg {
+        /*
+        * This sets the browser to calculate the height automatically based on the element's width.
+        * The height will be calculated based on the original aspect ratio.
+        * If the width reduces, the height shrinks proportionally.
+        * Prevents stretching and squashing of the image or video.
+        * This allows the images and videos to be responsive.
+        */
+        height: auto;
+    }
+
+    iframe {
+        /* Remove border from the iFrame element. */
+        border: 0;
+    }
+}
