@@ -8,25 +8,56 @@
         <title>Learn Spanish</title>
 
         <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
 
         <script src="script.js" defer></script>
     </head>
     <body>
-        <main role="main">
-            <div id="sentence" class="sentence" aria-live="polite"></div>
-            <div id="wordOptions" class="word-option" aria-label="Word choices"></div>
-            <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-
-            <div id="translationPanel" class="translation-panel" hidden>
+        <main class="app-shell">
+            <header class="app-header">
+              <div>
+                <p class="eyebrow">Spanish practice</p>
+                <h1>Complete the sentence</h1>
+              </div>
+              <div class="score" aria-live="polite">
+                <span id="scoreValue">0</span>
+                <small>correct</small>
+              </div>
+            </header>
+        
+            <section class="lesson-card" aria-labelledby="lessonTitle">
+              <div class="progress-row">
+                <span id="lessonTitle">Question <strong id="questionNumber">1</strong></span>
+                <span id="progressText">1 / 6</span>
+              </div>
+        
+              <div class="progress-track" aria-hidden="true">
+                <div id="progressBar" class="progress-bar"></div>
+              </div>
+        
+              <p class="instruction">Choose the missing Spanish word.</p>
+        
+              <div id="sentence" class="sentence" aria-live="polite"></div>
+        
+              <div id="wordOptions" class="word-options" aria-label="Word choices"></div>
+        
+              <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        
+              <div id="translationPanel" class="translation-panel" hidden>
                 <span>English</span>
                 <p id="translationText"></p>
-            </div>
-
-            <div class="actions">
+              </div>
+        
+              <div class="actions">
                 <button id="resetButton" class="button button-secondary" type="button">Start over</button>
-                <button id="nextButton" class="button button-primary" type="button">Next sentence</button>   
-            </div>
-        </main>
+                <button id="nextButton" class="button button-primary" type="button" disabled>Next sentence</button>
+              </div>
+            </section>
+        
+            <!--<section class="tip-card">
+              <h2>Easy to extend</h2>
+              <p>Add more exercises to the <code>lessons</code> array in <code>script.js</code>. Each lesson includes a sentence, missing word, choices, and English translation.</p>
+            </section>-->
+          </main>
     </body>
 </html>
