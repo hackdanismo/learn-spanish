@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A simple Spanish practice web application.">
+
+        <title>Learn Spanish</title>
+
+        <link rel="stylesheet" href="styles.css">
+
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <main role="main">
+            <div id="sentence" class="sentence" aria-live="polite"></div>
+            <div id-="wordOptions" class="word-option" aria-label="Word choices"></div>
+            <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+            <div id="translationPanel" class="translation-panel" hidden>
+                <span>English</span>
+                <p id="translationText"></p>
+            </div>
+
+            <div class="actions">
+                <button id="resetButton" class="button button-secondary" type="button">Start over</button>
+                <button id="nextButton" class="button button-primary" type="button">Next sentence</button>   
+            </div>
+        </main>
+    </body>
+</html>
