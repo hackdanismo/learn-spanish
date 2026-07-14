@@ -1,1 +1,1 @@
-# learn-spanish
+# Learn Spanish
